@@ -6,13 +6,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@OneToMany
 	private Pessoa atleta;
+	@OneToMany
 	private Clube clube;
 	private Date data_publicada;
 	private String tipo_contrato;
@@ -20,7 +24,7 @@ public class Post {
 	public Post() {
 
 	}
-
+ 
 	public Clube getClube() {
 		return clube;
 	}
