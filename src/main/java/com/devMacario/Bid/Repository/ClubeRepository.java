@@ -3,9 +3,9 @@ package com.devMacario.Bid.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.devMacario.Bid.Entitys.Pessoa;
+import com.devMacario.Bid.Entitys.Clube;
 
 @Repository
-public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
+public interface ClubeRepository extends JpaRepository<Clube, Long>{
 
 }
