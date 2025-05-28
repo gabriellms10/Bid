@@ -14,8 +14,8 @@ import com.devMacario.Bid.Service.ClubeService;
 public class ClubeController {
 	@Autowired
 	private ClubeService service;
-	
-	public List<Clube> listar(){
+
+	public List<Clube> listar() {
 		List<Clube> Clubes = service.listar();
 		return Clubes;
 	}
