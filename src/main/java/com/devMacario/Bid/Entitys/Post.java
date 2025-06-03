@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,15 +13,18 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "post")
 public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@ManyToOne
-	private Pessoa atleta;
+	@JoinColumn(name = "atleta_id")
+	private Pessoa atleta_id;
 	@ManyToMany
 	@JoinTable(name = "post_clubes", joinColumns = @JoinColumn(name = "post_id"), inverseJoinColumns = @JoinColumn(name = "clube_id"))
 	private List<Clube> clubes = new ArrayList<Clube>();
@@ -36,11 +40,11 @@ public class Post {
 	}
 
 	public Pessoa getAtleta() {
-		return atleta;
+		return atleta_id;
 	}
 
-	public void setAtleta(Pessoa atleta) {
-		this.atleta = atleta;
+	public void setAtleta(Pessoa atleta_id) {
+		this.atleta_id = atleta_id;
 	}
 
 	public long getId() {
